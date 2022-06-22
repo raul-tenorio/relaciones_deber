@@ -46,8 +46,8 @@ class User extends Authenticatable
     public function profile()
     {
         return $this->hasOne(Profile::class);
-    } 
-    
+    }
+
     // RELACIÓN DE UNO A MUCHOS
     public function level()
     {
@@ -66,15 +66,22 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
+    // RELACIÓN DE UNO A MUCHOS
+    public function certificacions()
+    {
+        return $this->hasMany(Certificacion::class);
+    }
+
+
     // RELACIÓN DE MUCHOS A MUCHOS
     public function groups()
     {
         return $this->belongsToMany(Group::class)->withTimestamps();
-    }    
+    }
 
     // RELACIÓN DE MUCHOS A MUCHOS
     public function profesores()
     {
         return $this->belongsToMany(Group::class)->withTimestamps();
-    }    
+    }
 }
