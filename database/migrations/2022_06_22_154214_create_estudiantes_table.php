@@ -15,12 +15,14 @@ return new class extends Migration
     {
         Schema::create('estudiantes', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('carrera_id');
             $table->string('nombre');
             $table->string('edad');
             $table->string('sexo');
 
 
-            $table->foreign('id')
+
+            $table->foreign('carrera_id')
                     ->references('id')
                     ->on('carreras')
                     ->onDelete('cascade')
